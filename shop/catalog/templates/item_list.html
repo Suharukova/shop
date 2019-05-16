@@ -4,11 +4,14 @@
 <style>
     .item{
     background: plum;
-    width: 10%;
+    width: 15%;
     float: left;
     padding: 5px;
     margin: 2%;
     }
+   .item input.amount{
+   width: 45%;
+   }
 </style>
 <form><!--<form action="{% url 'item_list' %}" method="GET">-->
     {{ item_sort_form.as_p }}
@@ -16,7 +19,9 @@
     <input type="submit" value="Sort">
 </form>
 {% for item in items %}
-<a href="{% url 'item_detail' pk=item.pk %}"><div class="item">
+
+<div class="item">
+    <a href="{% url 'item_detail' pk=item.pk %}">
     <p>Name: {{ item.name }}</p>
     <p>Price: {{ item.price }}</p>
     <p>Presence:
@@ -25,8 +30,14 @@
         {% else %}
         Out of stock
         {% endif %}</p>
+        </a>
+        <form action="{% url 'add_to_cart' %}">
+        <input name="item_id" type="hidden" value="{{ item.pk }}">
+        <input name="amount" type="number" value="1" min="1" class="amount">
+        <input type="submit" value="In cart">
+        </form>
 </div>
-</a>
+
 {% endfor %}
 
 

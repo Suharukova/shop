@@ -10,7 +10,7 @@ class CartItem(ItemAmount):
 
 
 class Cart(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, default=None, on_delete=models.CASCADE)
 
     @property
     def total_price(self):
