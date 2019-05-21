@@ -10,11 +10,10 @@ class OrderItem(ItemAmount):
 
 
 class Order(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    payment = models.CharField(max_length=50, null=True)
-    delivery_date = models.DateField(null=True)
-    email = models.EmailField(null=True)
-    tel = models.CharField(max_length=20, null=True)
+    #payment = models.CharField(max_length=50)
+    #delivery_date = models.DateField()
+    #email = models.EmailField()
+    #tel = models.SlugField()
 
     @property
     def total_price(self):

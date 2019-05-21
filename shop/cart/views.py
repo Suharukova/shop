@@ -27,6 +27,10 @@ def get_cart(session):
 
 
 def add_item_to_cart(cart, item, amount=1):
-    cart_item = CartItem(cart=cart, item=item, amount=amount)
-    cart_item.save()
-    return cart_item
+    #if not CartItem.amount:
+        cart_item = CartItem(cart=cart, item=item, amount=amount)
+        cart_item.save()
+        return cart_item
+
+def cart_list(request):
+    return render(request, 'cart_list.html', {'carts': Cart.objects.all()})
