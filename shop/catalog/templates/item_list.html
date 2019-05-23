@@ -18,8 +18,9 @@
     {{ item_filter_form.as_p }}
     <input type="submit" value="Sort">
 </form>
-{% for item in items %}
 
+{% for item in items %}
+{% if item.count != 0 %}
 <div class="item">
     <a href="{% url 'item_detail' pk=item.pk %}">
     <p>Name: {{ item.name }}</p>
@@ -32,7 +33,7 @@
         <input type="submit" value="In cart">
         </form>
 </div>
-
+{% endif %}
 {% endfor %}
 
 

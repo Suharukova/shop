@@ -14,4 +14,7 @@ class Cart(models.Model):
 
     @property
     def total_price(self):
-        return sum(item.total_price for item in self.items)
+        return sum(item.total_price for item in self.items.all())
+
+    def __str__(self):
+        return "Cart #{} for user {}".format(self.id, self.user.username if self.user is not None else '- Unknown -')
