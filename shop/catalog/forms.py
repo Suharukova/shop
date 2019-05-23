@@ -8,10 +8,10 @@ class ItemSortForm(forms.Form):
         ('price', 'price'),
         ('-price', 'price (desc)'),
         ('count', 'count'),
-    ], label='Order')
+    ], label='Order', required=False)
 
 
 class ItemFilterForm(forms.Form):
     name__contains = forms.CharField(max_length=200, required=False, label='Name')
-    price__gt = forms.DecimalField(decimal_places=2, max_digits=15, required=False, label='Price (greater than)')
-    price__lt = forms.DecimalField(decimal_places=2, max_digits=15, required=False, label='Price (less than)')
+    price__gt = forms.DecimalField(decimal_places=2, max_digits=15, required=False, label='Price >')
+    price__lt = forms.DecimalField(decimal_places=2, max_digits=15, required=False, label='Price <')

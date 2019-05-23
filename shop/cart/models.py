@@ -9,6 +9,7 @@ class CartItem(ItemAmount):
     cart = models.ForeignKey('Cart', on_delete=models.CASCADE, related_name='items')
 
 
+
 class Cart(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, default=None, on_delete=models.CASCADE)
 

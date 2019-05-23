@@ -13,8 +13,8 @@ def item_list(request):
         'item_sort_form': item_sort_form,
         'item_filter_form': item_filter_form,
         'items': Item.objects.filter(**{k: v for(k, v) in item_filter_form.cleaned_data.items()
-        if v is not None} if item_filter_form.is_valid() else {})
-                                            .order_by(item_sort_form.cleaned_data['order_by']
+                                            if v is not None} if item_filter_form.is_valid() else {})
+                                            .order_by(item_sort_form.cleaned_data['order_by'] or 'name'
                                             if item_sort_form.is_valid() else 'name')
     })
 
