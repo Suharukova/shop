@@ -10,13 +10,13 @@
     }
 </style>
 <div class="content">
-{% for item in items %}
+{% for cart_item in cart.items.all %}
 <div class="item">
-    <p>Name: {{ item.item.name }}</p>
-    <p>Price: {{ item.item.price }}</p>
-    <p>Amount: {{ item.amount }}</p>
+    <p>Name: {{ cart_item.item.name }}</p>
+    <p>Price: {{ cart_item.item.price }}</p>
+    <p>Amount: {{ cart_item.amount }}</p>
 </div>
 {% endfor %}
-<h3>Total price: {{ total_price }}</h3>
+<h3>Total price: {{ cart.total_price }}</h3>
 </div>
 {% endblock %}
