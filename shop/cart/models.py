@@ -19,3 +19,4 @@ class Cart(models.Model):
 
     def __str__(self):
         return "Cart #{} for user {}".format(self.id, self.user.username if self.user is not None else '- Unknown -')
+
