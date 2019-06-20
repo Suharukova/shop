@@ -18,6 +18,7 @@
 </div>
 {% endfor %}
 <h3>Total price: {{ cart.total_price }}</h3>
+<p><a href="{% url 'add_order' pk=order.pk %}></a></p>
 </div>
 {% endblock %}
 

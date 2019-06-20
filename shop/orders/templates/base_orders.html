@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+</head>
+<style>
+    a{
+    color: indigo;
+    text-decoration: none;
+    }
+    a .head{
+    color: white;
+    }
+    .head{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    background: BlueViolet;
+    }
+</style>
+<body>
+<a href="{% url 'item_list' %}"><div class="head">Main Title</div></a>
+{% block content %}
+<form action="{% url 'add_order' %}" method="POST">
+    {% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Add" />
+</form>
+{% endblock %}
+</body>
+</html>
